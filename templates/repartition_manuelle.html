@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}"> <!-- CSS du menu -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/repartition_manuelle.css') }}"> <!-- CSS de la page d'accueil -->
+
+    <title>Répartition manuelle des équipes</title>
+</head>
+<body>
+    {% include 'menu.html' %}
+    <h1>Répartir les équipes dans les groupes</h1>
+
+    <form action="{{ url_for('repartition_manuelle', tournoi_id=tournoi_id) }}" method="POST">
+        {% for equipe in equipes %}
+            <div>
+                <label>{{ equipe['name'] }}</label>
+                <select name="{{ equipe['id'] }}">
+                    {% for groupe in groupes %}
+                        <option value="{{ groupe['id'] }}" {% if groupe_actuel.get(equipe['id']) == groupe['id'] %} selected {% endif %}>
+                            {{ groupe['name'] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        {% endfor %}
+
+        <button type="submit">Valider la répartition</button>
+    </form>
+
+</body>
+</html>

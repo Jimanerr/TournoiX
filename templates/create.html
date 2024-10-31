@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}"> <!-- CSS de la page d'accueil -->
+
+
+    <title>Créer Tournoi</title>
+</head>
+<body>
+    <div class="formulaire">
+        <form method="post">
+
+            <h1>Créer un nouveau tournoi</h1><br>
+
+            <label for="content">Nom du tournoi</label><br>
+            <input type="text" id="name" name="name" required placeholder="Nom du tournoi"></input><br>
+
+            <label for="content">Description</label><br>
+            <input type="text" id="description" name="description" required placeholder="Description"></input><br>
+
+            <label for="content">Sport</label><br>
+            <input type="text" id="sport" name="sport" required placeholder="Sport"></input><br>
+
+            <label for="content">Date de début</label><br>
+            <input type="date" id="date_start" name="date_start" required placeholder="Date de début"></input><br>
+
+            <label for="content">Date de fin</label><br>
+            <input type="date" id="date_end" name="date_end" required placeholder="Date de fin"></input><br>
+
+            <label for="content">Localisation</label><br>
+            <input type="text" id="location" name="location" required placeholder="Localisation"></input><br>
+
+            <button type="submit">Valider</button>
+    </form>
+    </div>
+
+</body>
+</html>

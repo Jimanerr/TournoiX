@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}"> <!-- CSS du menu -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tournoi.css') }}"> <!-- CSS de la page d'accueil -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}"> <!-- CSS de la page d'accueil -->
+
+    <title>{{ tournoi_data['name'] }}</title>
+</head>
+<body>
+    
+    {% include 'menu.html' %}
+    <h1 class="tournoi-name">{{ tournoi_data['name'] }}</h1>
+
+    <div class="tournoi_data">
+        <p>Sport : {{ tournoi_data['sport'] }}</p>
+        <p>Date de début : {{ tournoi_data['date_start'] }}</p>
+        <p>Date de fin : {{ tournoi_data['date_end'] }}</p>
+        <p>Localisation : {{ tournoi_data['location'] }}</p>
+    </div>
+
+    <div class="classements">
+        <div class="classements-header">
+            <h1>Classements</h1>
+            <div class="classements-actions">
+                <a href="{{ url_for('add_equipe', tournoi_id=tournoi_data['id']) }}">Ajouter une équipe</a>
+                <a href="{{ url_for('add_groupe', tournoi_id=tournoi_data['id']) }}">Ajouter un groupe</a>
+            </div>
+        </div>
+
+        {% for groupe in groupes_classement %}
+            <h2>{{ groupe.groupe_name }}</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Équipe</th>
+                        <th>Matchs joués</th>
+                        <th>Victoires</th>
+                        <th>Nuls</th>
+                        <th>Défaites</th>
+                        <th>Buts pour</th>
+                        <th>Buts contre</th>
+                        <th>Différence de buts</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for standing in groupe.standings %}
+                    <tr>
+                        <td>{{ standing.team_name }}</td>
+                        <td>{{ standing.matches_played }}</td>
+                        <td>{{ standing.wins }}</td>
+                        <td>{{ standing.draws }}</td>
+                        <td>{{ standing.losses }}</td>
+                        <td>{{ standing.goals_for }}</td>
+                        <td>{{ standing.goals_against }}</td>
+                        <td>{{ standing.goal_difference }}</td>
+                        <td>{{ standing.points }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    </div>
+    <div class="actions-equipes">
+        <form action="{{ url_for('repartition_auto', tournoi_id=tournoi_data['id']) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir réinitialiser la répartition actuelle et répartir automatiquement les équipes ?')">
+            <button type="submit">Répartir automatiquement les équipes</button>
+        </form>
+        <form action="{{ url_for('repartition_manuelle', tournoi_id=tournoi_data['id']) }}" method="GET">
+            <button type="submit">Répartir manuellement les équipes</button>
+        </form>
+    </div>
+    <div class="matchs">
+        <div class="matchs-header">
+            <h1>Les matchs</h1>
+            <div class="actions">
+                <form action="{{ url_for('repartition_matchs_auto', tournoi_id=tournoi_data['id']) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer les matchs existants et recréer de nouveaux matchs ? Toutes vos données comme le score, le lieu, la date seront perdus')">
+                    <button type="submit">Générer automatiquement les matchs</button>
+                </form>
+                <a href="{{ url_for('add_match', tournoi_id=tournoi_data['id']) }}" class="add-match">Ajouter un match</a>
+            </div>
+        </div>
+        
+        <ul>
+            {% for match in matchs %}
+                <li>
+                    <strong>
+                        {{ match['team1_name'] }} 
+                        {% if match['score_team1'] is not none %}
+                            {{ match['score_team1'] }}
+                        {% else %}
+                            &nbsp;  <!-- Ajoute un espace si le score est None -->
+                        {% endif %}
+                        -
+                        {% if match['score_team2'] is not none %}
+                            {{ match['score_team2'] }}
+                        {% else %}
+                            &nbsp;  <!-- Ajoute un espace si le score est None -->
+                        {% endif %}
+                        {{ match['team2_name'] }}
+                    </strong><br>
+                                        <p>Date : {{ match['date'] }}</p>
+                    <p>Heure : {{ match['time'] }}</p>
+                    <p>Match : {{ match['round'] }}</p>
+                    <a href="{{ url_for('modifier_match', match_id=match['id'], tournoi_id=tournoi_data['id']) }}">Modifier</a>
+                </li>
+            {% else %}
+                <li>Aucun match</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% include 'footer.html' %}
+
+
+
+</body>
+</html>

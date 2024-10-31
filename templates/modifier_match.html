@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}"> <!-- CSS du menu -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modifier_match.css') }}"> <!-- CSS de la page d'accueil -->
+
+    <title>Modifier le Match</title>
+</head>
+<body>
+    {% include 'menu.html' %}
+    <h1>Modifier le Match</h1>
+
+    <form action="{{ url_for('modifier_match', match_id=match['id'], tournoi_id=tournoi_id) }}" method="POST">
+        <label for="score_team1">Score Équipe 1 :</label>
+        <input type="number" name="score_team1" value="{{ match['score_team1'] }}" required><br><br>
+
+        <label for="score_team2">Score Équipe 2 :</label>
+        <input type="number" name="score_team2" value="{{ match['score_team2'] }}" required><br><br>
+
+        <label for="date">Date :</label>
+        <input type="date" name="date" value="{{ match['date'] }}" required><br>
+
+        <label for="time">Heure :</label>
+        <input type="time" name="time" value="{{ match['time'] }}" required><br>
+
+        <!-- Ajoutez d'autres champs si nécessaire -->
+
+        <button type="submit">Modifier</button>
+    </form>
+
+    <a href="{{ url_for('tournoi', tournoi_id=tournoi_id) }}">Retour</a>
+
+</body>
+</html>

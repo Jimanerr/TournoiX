@@ -1,0 +1,14 @@
+<!-- menu.html -->
+<div class="menu">
+    <div class="menu-logo-nom">
+        <div class="logo"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo"></div>
+        <div class="nom">    <a href="{{ url_for('index') }}"> Tournoi X</a>
+           </div>
+    </div>
+    <div class="menu-btn">
+        
+        <img src="{{ url_for('static', filename='img/sports-de-balles.png') }}" alt="">
+        <button class="menu-item" onclick="window.location.href='{{ url_for('create') }}'">Créer un tournoi</button>
+
+    </div>
+</div>

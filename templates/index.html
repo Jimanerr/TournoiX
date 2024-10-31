@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}"> <!-- CSS du menu -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"> <!-- CSS de la page d'accueil -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}"> <!-- CSS de la page d'accueil -->
+
+    <title>Accueil</title>
+</head>
+<body>
+    {% include 'menu.html' %}
+
+    <header>
+        <img src="{{ url_for('static', filename='img/logo.png') }}">
+        <h1>TournoiX</h1>
+        <p>TournoiX est un site de création et de gestion de tournoi en ligne. Fini les tableaux sur Excel, cet outil permet de créer des tournois, ajouter des équipes, créer des groupes, répartir les équipes dans les groupes et générer les matchs de chaque groupe.</p>
+
+    <div class="conteudo">
+        <div class="carrosel">
+            <div class="caixa__card cc__1">
+                <img src="{{ url_for('static', filename='img/foot.png') }}" width="40px">
+            </div>
+            <div class="caixa__card cc__2">
+                <img src="{{ url_for('static', filename='img/badminton.png') }}" width="40px">
+            </div>
+            <div class="caixa__card cc__3">
+                <img src="{{ url_for('static', filename='img/volleyball.png') }}" width="40px">
+            </div>
+            <div class="caixa__card cc__4">
+                <img src="{{ url_for('static', filename='img/tennis.png') }}" width="40px">
+            </div>
+            <div class="caixa__card cc__5">
+                <img src="{{ url_for('static', filename='img/boxe.png') }}" width="40px">
+            </div>
+            <div class="caixa__card cc__6">
+                <img src="{{ url_for('static', filename='img/natation.png') }}" width="40px">
+            </div>
+            <div class="caixa__card cc__7">
+                <img src="{{ url_for('static', filename='img/basket.png') }}" width="40px">
+            </div>
+            <div class="caixa__card cc__8">
+                <img src="{{ url_for('static', filename='img/rugby.png') }}" width="40px">
+            </div>
+        </div>
+    </div>
+
+</header>
+    <div class="content">
+        <h1>Les tournois :</h1>
+        <ul>
+            {% for tournoi in tournois %}
+                <li>
+                    <h2><a href="{{ url_for('tournoi', tournoi_id=tournoi.id) }}" class="link-tournament">{{ tournoi['name'] }}</a></h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem perspiciatis adipisci voluptatibus nulla rem error autem architecto, nihil porro eveniet.</p> <br>
+
+                    <div class="tournament-info">
+                        <p>Sport : {{ tournoi['sport'] }}</p>
+                        <p>Date de début : {{ tournoi['date_start'] }}</p>
+                        <p>Date de fin : {{ tournoi['date_end'] }}</p>
+                        <p>Localisation : {{ tournoi['location'] }}</p>
+                    </div>
+                </li>
+            {% else %}
+                <li>Aucun tournoi disponible</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

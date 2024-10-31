@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}"> <!-- CSS du menu -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_match.css') }}"> <!-- CSS de la page d'accueil -->
+
+    <title>Ajouter un match</title>
+</head>
+<body>
+    {% include 'menu.html' %}
+    <h1>Ajouter un match</h1>
+    
+    <form method="post">
+
+        <label for="content">Equipe 1</label>
+        <select id="equipe1" name="equipe1" required>
+            {% for equipe in equipes %}
+                <option value="{{equipe['id']}}">{{ equipe['name'] }}</option>
+            {% else %}
+                <p>Aucune équippe<p>
+            {% endfor %}
+        </select><br>
+
+        <label for="content">Equipe 2</label>
+        <select id="equipe2" name="equipe2" required>
+            {% for equipe in equipes %}
+                <option value="{{equipe['id']}}"">{{ equipe['name'] }}</option>
+            {% else %}
+                <p>Aucune équippe</p>
+            {% endfor %}
+        </select><br>
+
+        
+        <label for="content">Date</label>
+        <input type="date" id="date" name="date" required></input><br>
+
+        <label for="content">Heurre</label>
+        <input type="time" id="heurre" name="heurre" required></input><br>
+
+        <label for="content">Rang du match</label>
+        <input type="text" id="round" name="round" required></input><br>
+
+        <button type="submit">Valider</button>
+    </form>
+
+</body>
+</html>
