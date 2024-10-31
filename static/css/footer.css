@@ -1,0 +1,38 @@
+
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: rgb(201, 201, 201);
+    color: rgb(0, 0, 0);
+    font-size: small;
+    padding-top: 50px;
+}
+.credit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px;
+
+}
+.credit-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.credit-icons a{
+   color: rgb(0, 0, 0);
+   margin: 10px;
+}
+
+.credit-caroussel{
+    display: flex;
+    justify-content: center;
+}
+.credit-caroussel a{
+    margin-left: 4px;
+    color: rgb(0, 0, 0);
+
+}

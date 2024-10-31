@@ -1,0 +1,194 @@
+header {
+    color: rgb(83, 83, 83);
+    margin: 0 auto;
+    padding-bottom: 100px;
+    text-align: center;
+    background-color: rgb(241, 243, 242);
+}
+header h1 {
+    color: #9412ff;
+   
+}
+header p {
+    margin: 0 20%;    
+    padding-bottom: 40px;
+}
+
+.content {
+    margin-top: 20px; /* Ajoute un espacement entre l'en-tête et le contenu */
+}
+.content h1{
+    margin-left: 10%;
+    color:rgb(83, 83, 83)
+}
+.content ul {
+    padding: 20px 10%; /* Supprime le padding par défaut de la liste */
+    
+}
+
+.content li {
+    height: 150px;
+    border: 2px solid #9412ff; /* Utilise la couleur pour la bordure */
+    border-radius: 25px;
+    list-style-type: none;
+    padding: 10px 10px 20px;
+    margin-bottom: 20px; /* Ajoute un espacement entre les éléments de la liste */
+    display: flex; /* Utilise flexbox pour le contenu de chaque li */
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: center; /* Centre horizontalement les éléments */
+}
+
+.content a {
+    color: black;
+    font-size: larger;
+    display: block; /* Force le lien à occuper toute la largeur */
+    margin-bottom: 10px; /* Ajoute de l'espace sous le lien */
+}
+
+.tournament-info {
+    display: flex; /* Utilise flexbox pour aligner les éléments sur la même ligne */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si l'espace est insuffisant */
+    gap: 15px; /* Espacement entre les éléments de la ligne */
+    justify-content: center; /* Centre horizontalement les éléments */
+}
+
+.tournament-info p {
+    margin: 0; /* Supprime le margin par défaut des paragraphes */
+}
+
+.content p {
+    color: rgb(124, 124, 124);
+    margin: 5px 0; /* Ajoute de l'espace autour des paragraphes */
+}
+
+
+
+/* Partie Caroussel*/
+
+.carrosel {
+    -webkit-perspective: 250px;
+    -moz-perspective: 250px;
+    width: 400px;
+    height: 200px;
+    top: 50px;
+    position: relative;
+    margin: 0 auto;
+}
+
+@-webkit-keyframes efeitoCarrosel {
+    from {
+        -webkit-transform: rotateY(360deg) translateZ(130px) rotateY(-360deg);
+        -moz-transform: rotateY(360deg) translateZ(130px) rotateY(-360deg);
+        z-index: 10;
+        opacity: 1
+    }
+
+    50% {
+        z-index: -10;
+    }
+
+    to {
+        -webkit-transform: rotateY(0deg) translateZ(130px) rotateY(0deg);
+        -moz-transform: rotateY(0deg) translateZ(130px) rotateY(0deg);
+        z-index: 10;
+        opacity: 1
+    }
+}
+
+@-moz-keyframes efeitoCarrosel {
+    from {
+        -moz-transform: rotateY(360deg) translateZ(130px) rotateY(-360deg);
+        z-index: 10;
+        opacity: 1
+    }
+
+    50% {
+        z-index: -10;
+    }
+
+    to {
+        -moz-transform: rotateY(0deg) translateZ(130px) rotateY(0deg);
+        z-index: 10;
+        opacity: 1
+    }
+}
+
+.caixa__card {
+    width: 90px;
+    height: 100px;
+    background-color: #442222;
+    position: absolute;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    top: 35px;
+    left: 125px;
+    font-size: 9px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .5);
+    text-align: center;
+    -webkit-animation-name: efeitoCarrosel;
+    -moz-animation-name: efeitoCarrosel;
+    -webkit-animation-duration: 8s;
+    -moz-animation-duration: 8s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+.caixa__card:hover {
+    border: solid #4466cc 3px;
+    box-shadow: 0px 0px 10px #4466cc;
+}
+
+.caixa__card.cc__1 {
+    background: linear-gradient(-229deg, #0093E9, #80D0C7);
+    -webkit-animation-delay: -7s;
+    -moz-animation-delay: -7s;
+}
+
+.caixa__card.cc__2 {
+
+    background: linear-gradient(-229deg, #00DBDE, #FC00FF);
+    -webkit-animation-delay: -6s;
+    -moz-animation-delay: -6s;
+}
+
+.caixa__card.cc__3 {
+
+    background: linear-gradient(-229deg, #50d990, #d4d054);
+    -webkit-animation-delay: -5s;
+    -moz-animation-delay: -5s;
+}
+
+.caixa__card.cc__4 {
+    background: linear-gradient(-229deg, #cf91ff, #5782F5);
+    -webkit-animation-delay: -4s;
+    -moz-animation-delay: -4s;
+}
+
+.caixa__card.cc__5 {
+    background: linear-gradient(-229deg, #642B73, #C6426E);
+    -webkit-animation-delay: -3s;
+    -moz-animation-delay: -3s;
+}
+
+.caixa__card.cc__6 {
+    background: linear-gradient(-229deg, #D9AFD9, #97D9E1);
+    -webkit-animation-delay: -2s;
+    -moz-animation-delay: -2s;
+}
+
+.caixa__card.cc__7 {
+    background: linear-gradient(-229deg, #FBAB7E, #F7CE68);
+    -webkit-animation-delay: -1s;
+    -moz-animation-delay: -1s;
+}
+
+.caixa__card.cc__8 {
+    background: linear-gradient(-229deg, #1472ff, #A8EB12);
+}
+
+/* Fin partie caroussel*/

@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif; /* Police générale */
+    background-color: #f9f9f9; /* Couleur d'arrière-plan */
+    color: #333; /* Couleur du texte */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu */
+}
+
+h1 {
+    color: #7910cf; /* Couleur du titre */
+    margin-bottom: 20px; /* Espace sous le titre */
+}
+
+.group-form {
+    background-color: white; /* Couleur de fond du formulaire */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+    padding: 20px; /* Espacement interne */
+    width: 300px; /* Largeur du formulaire */
+    display: flex;
+    flex-direction: column; /* Colonne pour les éléments du formulaire */
+}
+
+label {
+    margin-bottom: 5px; /* Espace sous les labels */
+    font-weight: bold; /* Gras pour les labels */
+}
+
+input[type="text"] {
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ddd; /* Bordure */
+    border-radius: 4px; /* Coins arrondis des champs */
+    margin-bottom: 15px; /* Espace entre les champs */
+    font-size: 14px; /* Taille de police */
+}
+
+button {
+    padding: 10px; /* Espacement interne du bouton */
+    background-color: #9412ff; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Pointeur lors du survol */
+    font-size: 16px; /* Taille de police du bouton */
+    transition: background-color 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+button:hover {
+    background-color: #3d3d70; /* Couleur lors du survol */
+}

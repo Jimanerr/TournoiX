@@ -1,0 +1,239 @@
+.tournoi-name {
+    display: flex;
+    justify-content: center;
+}
+.tournoi_data{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: medium;
+}
+.classements {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.classements h1 {
+    margin-left: 0; /* Pour éviter le décalage à gauche */
+    color: pink;
+}
+
+/* Conteneur pour le titre et les actions */
+.classements-header {
+    display: flex;
+    justify-content: space-between; /* Pour aligner à droite */
+    align-items: center; /* Centrer verticalement */
+}
+
+/* Style pour les actions des classements */
+.classements-actions a {
+    margin-left: 15px; /* Espace entre les liens */
+    color: rgb(52, 152, 219); /* Couleur des liens */
+    text-decoration: none; /* Supprimer le soulignement */
+    padding: 10px 15px;
+    font-size: 0.9em;
+    color: #fff;
+    background-color: rgb(52, 152, 219);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.classements-actions a:hover {
+    background-color: rgb(41, 128, 185);
+}
+/* Style des boutons d'action des équipes */
+.actions-equipes {
+    display: flex;
+    gap: 10px; /* Espace entre les boutons */
+    margin: 20px 5%; /* Marge autour des boutons */
+}
+
+/* Style des boutons */
+.actions-equipes button {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    color: #fff;
+    background-color: rgb(255, 69, 58);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect pour les boutons */
+.actions-equipes button:hover {
+    background-color: rgb(230, 60, 50);
+}
+
+/* Style global du tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border: 2px solid #4a4a8e; /* Contour unique pour le tableau */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Ombre pour l'effet de profondeur */
+}
+
+/* En-tête du tableau */
+thead th {
+    padding: 15px;
+    background-color: #ec4ac9; /* Couleur de fond de l'en-tête */
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Corps du tableau */
+tbody td {
+    padding: 12px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Lignes alternées pour le corps */
+tbody tr:nth-child(even) {
+    background-color: #f6e8ff;
+}
+
+tbody tr:hover {
+    background-color: #d3d3f5;
+}
+
+/* Bordures internes entre les lignes */
+thead th,
+tbody td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style des cellules */
+tbody tr:last-child td {
+    border-bottom: none; /* Supprime la bordure du bas sur la dernière ligne */
+}
+
+/* Style global pour la section des matchs */
+.matchs {
+    width: 90%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+/* Style pour le titre principal */
+.matchs h1 {
+    font-size: 2em;
+    color: rgb(100, 209, 100);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Conteneur pour le titre et les actions */
+.matchs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    margin-bottom: 20px;
+}
+
+/* Conteneur pour le bouton et le lien */
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Style pour le bouton de génération */
+.actions form button {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    color: #fff;
+    background-color: rgb(255, 69, 58);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect pour le bouton */
+.actions form button:hover {
+    background-color: rgb(230, 60, 50);
+}
+
+/* Style pour le lien "Ajouter un match" */
+.actions .add-match {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    color: #fff;
+    background-color: rgb(52, 152, 219);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect pour le lien */
+.actions .add-match:hover {
+    background-color: rgb(41, 128, 185);
+}
+
+/* Style de la liste des matchs */
+.matchs ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Style pour chaque match */
+.matchs ul li {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    max-width: 300px;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+/* Titre de chaque match */
+.matchs ul li strong {
+    display: block;
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Informations de date et heure */
+.matchs ul li p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 2px 0;
+}
+
+/* Style du lien Modifier */
+.matchs ul li a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    color: #fff;
+    background-color: rgb(100, 209, 100);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effects */
+.matchs ul li:hover {
+    background-color: #e6f7e6;
+}
+
+.matchs ul li a:hover {
+    background-color: rgb(80, 179, 80);
+}
